@@ -104,5 +104,7 @@ theme: landscape
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repository: https://github.com/muyuge/muyuge.github.io
+  repository: github:muyuge/muyuge.github.io.git
   branch: master
+  name: muyuge
+  email: lixiang9802@gmail.com
