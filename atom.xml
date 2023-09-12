@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://muyuge.github.io</id>
+    <title>muyuge</title>
+    <updated>2023-09-12T02:32:12.493Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://muyuge.github.io"/>
+    <link rel="self" href="https://muyuge.github.io/atom.xml"/>
+    <subtitle>温故而知新</subtitle>
+    <logo>https://muyuge.github.io/images/avatar.png</logo>
+    <icon>https://muyuge.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2023, muyuge</rights>
+    <entry>
+        <title type="html"><![CDATA[DDIA notes - Chapter 11: Stream Processing ]]></title>
+        <id>https://muyuge.github.io/post/ddia-notes-chapter-11-stream-processing/</id>
+        <link href="https://muyuge.github.io/post/ddia-notes-chapter-11-stream-processing/">
+        </link>
+        <updated>2023-03-25T02:30:47.000Z</updated>
+        <content type="html"><![CDATA[<p>Chapter 11 provides an overview of stream processing, its use cases, key characteristics, and popular stream processing frameworks. It also discusses challenges related to event time, state management, and exactly-once processing semantics.</p>
+<ol>
+<li>
+<p><strong>Stream Processing</strong>: Stream processing is a data processing paradigm focused on handling data in real-time as it flows through a system. It's used for a wide range of applications, including real-time analytics, monitoring, fraud detection, and more.</p>
+</li>
+<li>
+<p><strong>Key Characteristics</strong>:</p>
+<ul>
+<li>Stream processing systems ingest data continuously, often from various sources.</li>
+<li>They process data incrementally as it arrives, enabling low-latency processing.</li>
+<li>Stream processors typically offer support for event time and processing time semantics.</li>
+</ul>
+</li>
+<li>
+<p><strong>Use Cases for Stream Processing</strong>:</p>
+<ul>
+<li>Real-time analytics: Analyzing data as it arrives to gain insights and make decisions.</li>
+<li>Monitoring and alerting: Detecting anomalies or critical events in real time.</li>
+<li>Fraud detection: Identifying fraudulent activities as they occur.</li>
+<li>Recommendations: Generating personalized recommendations based on user behavior.</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Streams</strong>: Data streams represent a continuous flow of data records. They can be unbounded (infinite) or bounded (finite). Examples include logs, sensor data, social media updates, and more.</p>
+</li>
+<li>
+<p><strong>Event Time vs. Processing Time</strong>: Event time represents the time when an event occurred in the real world, while processing time represents the time when the system processes the event. Stream processing systems often need to reconcile these two notions of time.</p>
+</li>
+<li>
+<p><strong>Stateful Processing</strong>: Stream processing systems can maintain state, such as aggregations, for a defined time window to perform operations like counting, summing, or averaging.</p>
+</li>
+<li>
+<p><strong>Stream Processing Frameworks</strong>: Popular stream processing frameworks include Apache Kafka Streams, Apache Flink, and Apache Storm.</p>
+</li>
+<li>
+<p><strong>Apache Kafka Streams</strong>: Kafka Streams is an embedded stream processing library for building applications that process data from Kafka topics. It provides exactly-once processing semantics.</p>
+</li>
+<li>
+<p><strong>Apache Flink</strong>: Flink is a stream processing framework that also supports batch processing. It offers strong event-time support, low-latency processing, and stateful operations.</p>
+</li>
+<li>
+<p><strong>Apache Storm</strong>: Storm is an older stream processing framework known for its low-latency capabilities. It processes data in small units called &quot;tuples&quot; and supports various processing topologies.</p>
+</li>
+<li>
+<p><strong>Lambda Architecture</strong>: The Lambda Architecture is a design pattern that combines batch and stream processing to provide both real-time and batch processing capabilities. It aims to provide the best of both worlds while handling late-arriving data.</p>
+</li>
+<li>
+<p><strong>Complex Event Processing (CEP)</strong>: CEP is a specialized field of stream processing that focuses on detecting complex patterns and sequences of events in real-time data streams.</p>
+</li>
+<li>
+<p><strong>Time Windowing</strong>: Time-based windows are often used in stream processing to group events within a specified time interval for aggregation or analysis.</p>
+</li>
+<li>
+<p><strong>Watermarks</strong>: Watermarks are used to track progress in processing event-time data. They help systems deal with out-of-order events and ensure correctness in windowed operations.</p>
+</li>
+<li>
+<p><strong>Exactly-Once Processing</strong>: Ensuring exactly-once processing semantics is a complex challenge in stream processing and often involves coordination and state management.</p>
+</li>
+<li>
+<p><strong>Key Takeaway</strong>: Stream processing is a powerful paradigm for handling real-time data, enabling low-latency insights and actions. It's essential for applications where timely data processing is critical.</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DDIA notes - Chapter 10: Batch Processing]]></title>
+        <id>https://muyuge.github.io/post/ddia-notes-chapter-10-batch-processing/</id>
+        <link href="https://muyuge.github.io/post/ddia-notes-chapter-10-batch-processing/">
+        </link>
+        <updated>2023-03-18T02:28:55.000Z</updated>
+        <content type="html"><![CDATA[<p>Chapter 10 provides insights into batch processing, its use cases, and the challenges associated with processing large volumes of data in a batch-oriented manner. It also introduces key batch processing frameworks and their characteristics.</p>
+<ol>
+<li>
+<p><strong>Batch Processing</strong>: Batch processing is a common data processing paradigm used to handle large volumes of data efficiently. It involves processing data in chunks or batches rather than in real-time.</p>
+</li>
+<li>
+<p><strong>Use Cases for Batch Processing</strong>: Batch processing is well-suited for various use cases, including:</p>
+<ul>
+<li>Data ETL (Extract, Transform, Load) for data warehousing.</li>
+<li>Generating reports and analytics.</li>
+<li>Large-scale data analysis and transformations.</li>
+<li>Data quality checks and validation.</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Locality</strong>: Batch processing often leverages data locality, where data is processed where it resides to minimize data transfer costs.</p>
+</li>
+<li>
+<p><strong>Batch Data Processing Frameworks</strong>: Popular batch processing frameworks include Apache Hadoop (with MapReduce), Apache Spark, and Apache Flink. These frameworks provide abstractions for parallel processing and fault tolerance.</p>
+</li>
+<li>
+<p><strong>MapReduce</strong>: MapReduce is a programming model and processing framework designed for batch processing. It involves two main phases: a Map phase for data transformation and a Reduce phase for aggregation.</p>
+</li>
+<li>
+<p><strong>Shuffling</strong>: Shuffling is the process of redistributing data between nodes in a cluster during a batch processing job. It can be a performance bottleneck.</p>
+</li>
+<li>
+<p><strong>Apache Hadoop</strong>: Hadoop is one of the earliest batch processing frameworks, known for its use of Hadoop Distributed File System (HDFS) and MapReduce. It is suitable for batch processing of large-scale data.</p>
+</li>
+<li>
+<p><strong>Apache Spark</strong>: Spark is a more recent batch processing framework that offers in-memory processing, which can significantly speed up batch jobs compared to MapReduce.</p>
+</li>
+<li>
+<p><strong>Apache Flink</strong>: Flink is another batch processing framework designed for low-latency, high-throughput, and exactly-once processing semantics. It's suitable for both batch and stream processing.</p>
+</li>
+<li>
+<p><strong>Batch Processing Challenges</strong>:</p>
+<ul>
+<li>Scalability: Ensuring that batch processing jobs can scale horizontally to handle large datasets.</li>
+<li>Fault Tolerance: Handling failures and ensuring that jobs can resume from where they left off.</li>
+<li>Data Skew: Dealing with uneven data distribution, which can lead to performance bottlenecks.</li>
+<li>Resource Management: Efficiently managing CPU, memory, and disk resources across a cluster.</li>
+</ul>
+</li>
+<li>
+<p><strong>Data Pipeline Orchestration</strong>: Tools like Apache Airflow are used for orchestrating complex batch processing workflows, including scheduling, monitoring, and dependency management.</p>
+</li>
+<li>
+<p><strong>Serialization</strong>: Batch processing often requires serialization and deserialization of data between processing stages, which can introduce overhead.</p>
+</li>
+<li>
+<p><strong>State Management</strong>: Batch processing jobs may need to maintain state, such as aggregations or counters, between processing steps.</p>
+</li>
+<li>
+<p><strong>Key Takeaway</strong>: Batch processing is a valuable paradigm for handling large-scale data processing tasks efficiently. Modern batch processing frameworks like Spark and Flink offer enhanced performance and ease of use compared to traditional MapReduce.</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DDIA notes - Chapter 9: Consistency and Consensus]]></title>
+        <id>https://muyuge.github.io/post/ddia-notes-chapter-9-consistency-and-consensus/</id>
+        <link href="https://muyuge.github.io/post/ddia-notes-chapter-9-consistency-and-consensus/">
+        </link>
+        <updated>2023-02-25T02:20:38.000Z</updated>
+        <content type="html"><![CDATA[<p>Chapter 9 explores the concepts of consistency and consensus in distributed systems, highlighting the challenges and trade-offs involved in achieving strong consistency across distributed nodes. It also introduces some key consensus algorithms used in practice.</p>
+<ol>
+<li>
+<p><strong>Consistency in Distributed Systems</strong>: Achieving consistency in distributed systems involves ensuring that all nodes in the system agree on the order of operations or values. It's a fundamental challenge in maintaining data integrity.</p>
+</li>
+<li>
+<p><strong>Linearizability</strong>: Linearizability is a strong form of consistency that ensures that writes appear to be instantaneous, and all nodes in the system see the same order of operations.</p>
+</li>
+<li>
+<p><strong>Sequential Consistency</strong>: Sequential consistency is a weaker form of consistency that ensures that all operations appear to be executed in the same order, but not necessarily instantaneously.</p>
+</li>
+<li>
+<p><strong>Causal Consistency</strong>: Causal consistency ensures that operations are ordered based on their causality, meaning that if one operation causally precedes another, all nodes will observe the same causal order.</p>
+</li>
+<li>
+<p><strong>CAP Theorem</strong>: The CAP theorem states that in the presence of a network partition, a distributed system must choose between providing Consistency (C) or Availability (A). Partition tolerance (P) is always assumed.</p>
+</li>
+<li>
+<p><strong>Consensus</strong>: Consensus is the process by which a distributed system agrees on a single value or sequence of values. It is a fundamental building block for achieving strong consistency in distributed systems.</p>
+</li>
+<li>
+<p><strong>Two-Phase Commit (2PC)</strong>: 2PC is a classic consensus protocol used to coordinate distributed transactions. It ensures that all participants agree on whether to commit or abort a transaction.</p>
+</li>
+<li>
+<p><strong>Two-Phase Commit Limitations</strong>: 2PC can suffer from blocking and is not suitable for systems with high availability requirements or in the presence of network partitions.</p>
+</li>
+<li>
+<p><strong>Three-Phase Commit (3PC)</strong>: 3PC is a variation of 2PC that mitigates some of its limitations, but it still does not guarantee progress in the presence of network partitions.</p>
+</li>
+<li>
+<p><strong>Paxos</strong>: Paxos is a consensus algorithm that can tolerate network partitions and has been widely used in distributed systems.</p>
+</li>
+<li>
+<p><strong>Raft</strong>: Raft is another consensus algorithm designed for ease of understanding and implementation. It provides strong consistency and can tolerate network partitions.</p>
+</li>
+<li>
+<p><strong>ZooKeeper</strong>: Apache ZooKeeper is a distributed coordination service that uses a variation of the Zab protocol, which is similar to Paxos, to achieve consensus.</p>
+</li>
+<li>
+<p><strong>Chubby</strong>: Chubby is a distributed lock service developed by Google that uses Paxos for achieving consensus.</p>
+</li>
+<li>
+<p><strong>Key Takeaway</strong>: Achieving consensus in distributed systems is crucial for maintaining strong consistency and data integrity. Various consensus algorithms like Paxos and Raft offer different trade-offs in terms of ease of use and performance.</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DDIA notes - Chapter 8: The Trouble with Distributed Systems]]></title>
+        <id>https://muyuge.github.io/post/ddia-notes-chapter-8-the-trouble-with-distributed-systems/</id>
+        <link href="https://muyuge.github.io/post/ddia-notes-chapter-8-the-trouble-with-distributed-systems/">
+        </link>
+        <updated>2023-02-12T09:16:35.000Z</updated>
+        <content type="html"><![CDATA[<p>Chapter 8 explores the complexities and challenges of distributed systems, emphasizing the need to design for failure, understand network partitions, and make informed trade-offs between consistency and availability. It also highlights the importance of testing and monitoring in ensuring the reliability of distributed systems.</p>
+<ol>
+<li>
+<p><strong>Distributed Systems Complexity</strong>: Distributed systems are complex due to the challenges of dealing with network partitions, failures, and the need for coordination.</p>
+</li>
+<li>
+<p><strong>Fallacies of Distributed Computing</strong>: The Fallacies of Distributed Computing are a set of common misconceptions about distributed systems, including assumptions about network reliability, latency, and topology.</p>
+</li>
+<li>
+<p><strong>Network Partitions</strong>: Network partitions occur when a network connection between nodes in a distributed system is lost or severely delayed. Dealing with partitions is one of the most challenging aspects of distributed systems.</p>
+</li>
+<li>
+<p><strong>CAP Theorem Revisited</strong>: The CAP theorem states that in the presence of a network partition (P), distributed systems must choose between providing Consistency (C) or Availability (A). There's no one-size-fits-all answer; the choice depends on the specific requirements of the system.</p>
+</li>
+<li>
+<p><strong>Latency</strong>: Network latency can vary widely and is a critical factor in the performance of distributed systems. Reducing latency often requires trade-offs, such as increased complexity or the need for distributed caching.</p>
+</li>
+<li>
+<p><strong>Consensus and Coordination</strong>: Distributed systems often rely on consensus algorithms like Paxos or Raft to coordinate and agree on values in the presence of failures.</p>
+</li>
+<li>
+<p><strong>Impossibility of Consensus</strong>: The FLP (Fischer-Lynch-Paterson) theorem shows that in an asynchronous network, it is impossible to achieve consensus if a single node can fail in an arbitrary way. This theorem highlights the challenges of achieving fault tolerance in distributed systems.</p>
+</li>
+<li>
+<p><strong>Failures Are the Norm</strong>: In distributed systems, it's essential to design for failure and assume that failures will occur. This approach, known as &quot;chaos engineering,&quot; involves testing systems for resilience under various failure scenarios.</p>
+</li>
+<li>
+<p><strong>Time</strong>: Distributed systems often rely on distributed clocks or timestamps to order events. However, synchronizing clocks across nodes is challenging, and clock skew can lead to problems.</p>
+</li>
+<li>
+<p><strong>Monotonic Reads and Writes</strong>: Ensuring monotonic reads and writes in a distributed system can be difficult, as operations may be executed out of order.</p>
+</li>
+<li>
+<p><strong>Consistency Models</strong>: Different consistency models, such as strong consistency, eventual consistency, and causal consistency, offer different trade-offs between performance and data consistency.</p>
+</li>
+<li>
+<p><strong>ACID Transactions in Distributed Systems</strong>: Implementing ACID transactions across distributed systems is complex due to the need for coordination and the risk of performance bottlenecks.</p>
+</li>
+<li>
+<p><strong>Complexity and Testing</strong>: Distributed systems often exhibit emergent behaviors that are difficult to predict or test in isolation. Comprehensive testing and monitoring are crucial.</p>
+</li>
+<li>
+<p><strong>Operational Complexity</strong>: Operating and maintaining distributed systems can be challenging, as they often involve multiple nodes, configurations, and dependencies.</p>
+</li>
+<li>
+<p><strong>Key Takeaway</strong>: Building and operating distributed systems is inherently complex, and developers must be aware of the challenges and trade-offs involved in achieving reliability, performance, and consistency.</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DDIA notes - Chapter 7: Transactions]]></title>
+        <id>https://muyuge.github.io/post/ddia-notes-chapter-7-transactions/</id>
+        <link href="https://muyuge.github.io/post/ddia-notes-chapter-7-transactions/">
+        </link>
+        <updated>2023-02-04T11:10:07.000Z</updated>
+        <content type="html"><![CDATA[<p>Chapter 7 dives deep into the topic of transactions, exploring different isolation levels, concurrency control mechanisms, and distributed transaction strategies. It highlights the trade-offs between strong consistency and performance in distributed systems.</p>
+<ol>
+<li>
+<p><strong>Transactions</strong>: Transactions are a fundamental concept in databases and distributed systems. They provide a way to ensure data consistency and integrity, even in the presence of failures.</p>
+</li>
+<li>
+<p><strong>ACID Properties</strong>: ACID stands for Atomicity, Consistency, Isolation, and Durability. These properties define the guarantees provided by a transaction:</p>
+<ul>
+<li><strong>Atomicity</strong>: A transaction is atomic; it's either fully completed or fully rolled back.</li>
+<li><strong>Consistency</strong>: A transaction brings the database from one consistent state to another.</li>
+<li><strong>Isolation</strong>: Transactions are isolated from each other, and their effects appear as if they occurred serially.</li>
+<li><strong>Durability</strong>: Once a transaction is committed, its effects are permanent.</li>
+</ul>
+</li>
+<li>
+<p><strong>Weak Isolation Levels</strong>: Many databases default to weaker isolation levels than full serializability to improve performance. These levels include Read Uncommitted, Read Committed, and Repeatable Read.</p>
+</li>
+<li>
+<p><strong>Serializable Transactions</strong>: Serializable transactions provide the strongest isolation guarantees but may result in performance trade-offs, such as reduced concurrency.</p>
+</li>
+<li>
+<p><strong>Two-Phase Locking</strong>: Two-phase locking is a common concurrency control mechanism used in databases to ensure serializability.</p>
+</li>
+<li>
+<p><strong>Serializable Snapshot Isolation</strong>: Serializable snapshot isolation is an alternative to two-phase locking, providing serializability with better concurrency in some cases.</p>
+</li>
+<li>
+<p><strong>Linearizability</strong>: Linearizability is a stronger guarantee than serializability, ensuring that operations appear to occur instantly at a single point in time.</p>
+</li>
+<li>
+<p><strong>Causal Consistency</strong>: Causal consistency ensures that operations appear in a causal order.</p>
+</li>
+<li>
+<p><strong>Implementing Serializable Transactions</strong>: Implementing serializable transactions in distributed databases is challenging due to network delays and the need for coordination.</p>
+</li>
+<li>
+<p><strong>Global Serializability</strong>: Global serializability ensures that transactions appear to be executed in a single, globally agreed-upon order.</p>
+</li>
+<li>
+<p><strong>Distributed Transactions</strong>: Distributed transactions involve multiple databases or services. Implementing distributed transactions often requires two-phase commit (2PC) or distributed commit protocols.</p>
+</li>
+<li>
+<p><strong>Sagas</strong>: Sagas are a pattern for orchestrating distributed transactions across multiple services, often using a sequence of local transactions and compensating actions.</p>
+</li>
+<li>
+<p><strong>Concurrency Control without Two-Phase Commit</strong>: Some systems use multi-version concurrency control (MVCC) to achieve strong isolation without the need for distributed transactions.</p>
+</li>
+<li>
+<p><strong>Distributed Consensus</strong>: Distributed consensus protocols like Paxos and Raft provide a way for distributed systems to agree on a single value.</p>
+</li>
+<li>
+<p><strong>Distributed Locks</strong>: Distributed locks can be used to coordinate access to shared resources in a distributed system.</p>
+</li>
+<li>
+<p><strong>Key Takeaway</strong>: Transactions are essential for maintaining data consistency and integrity in data-intensive applications. Choosing the right isolation level and concurrency control mechanism depends on the application's requirements and trade-offs between consistency and performance.</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DDIA notes - Chapter 6: Partitioning]]></title>
+        <id>https://muyuge.github.io/post/ddia-notes-chapter-6-partitioning/</id>
+        <link href="https://muyuge.github.io/post/ddia-notes-chapter-6-partitioning/">
+        </link>
+        <updated>2023-01-28T09:05:07.000Z</updated>
+        <content type="html"><![CDATA[<p>Chapter 6 provides a detailed exploration of partitioning strategies and considerations in data-intensive applications. It highlights the importance of choosing the right partitioning method and key to achieve a balanced and efficient data distribution.</p>
+<ol>
+<li>
+<p><strong>Partitioning</strong>: Partitioning involves dividing a dataset into smaller, more manageable pieces called partitions or shards. It is a fundamental technique for distributing data and workload in data-intensive applications.</p>
+</li>
+<li>
+<p><strong>Motivation for Partitioning</strong>: Partitioning is used to:</p>
+<ul>
+<li>Distribute data across multiple servers or nodes for scalability.</li>
+<li>Improve data locality for performance.</li>
+<li>Isolate different parts of the dataset for fault tolerance and availability.</li>
+</ul>
+</li>
+<li>
+<p><strong>Partitioning Methods</strong>:</p>
+<ul>
+<li><strong>Hash Partitioning</strong>: Data is assigned to partitions based on a hash of the partition key.</li>
+<li><strong>Range Partitioning</strong>: Data is divided into partitions based on a predefined range of values.</li>
+<li><strong>List Partitioning</strong>: Data is assigned to partitions based on a list of values associated with each partition.</li>
+<li><strong>Round Robin Partitioning</strong>: Data is distributed evenly among partitions in a circular fashion.</li>
+<li><strong>Composite Partitioning</strong>: A combination of multiple partitioning methods.</li>
+</ul>
+</li>
+<li>
+<p><strong>Partitioning and Data Distribution</strong>: Effective partitioning requires distributing data evenly across partitions to avoid hotspots and ensure balanced load.</p>
+</li>
+<li>
+<p><strong>Partitioning and Query Performance</strong>: The choice of partitioning key can significantly impact query performance. Queries that involve multiple partitions may require distributed queries and introduce latency.</p>
+</li>
+<li>
+<p><strong>Joins and Denormalization</strong>: In a partitioned system, joining data from different partitions can be challenging. Denormalization can help by duplicating data in multiple partitions, reducing the need for joins.</p>
+</li>
+<li>
+<p><strong>Rebalancing Partitions</strong>: Over time, the distribution of data may become uneven due to changes in data volume or access patterns. Systems need mechanisms for rebalancing partitions.</p>
+</li>
+<li>
+<p><strong>Leader-Based vs. Key-Based Partitioning</strong>: In leader-based partitioning, one node (leader) handles all requests for a particular partition. In key-based partitioning, each partition can have its leader.</p>
+</li>
+<li>
+<p><strong>Zookeeper</strong>: Apache ZooKeeper is a coordination service often used to keep track of which node is the leader for each partition.</p>
+</li>
+<li>
+<p><strong>Partitioning and Secondary Indexes</strong>: Secondary indexes can be challenging in partitioned systems. They may require additional indexes or specialized techniques for distributed querying.</p>
+</li>
+<li>
+<p><strong>Partitioning in Practice</strong>: Real-world systems often use a combination of partitioning methods and strategies to meet their specific requirements.</p>
+</li>
+<li>
+<p><strong>Key Takeaway</strong>: Partitioning is a crucial technique for distributing data in data-intensive applications to achieve scalability, performance, and fault tolerance. However, it introduces challenges related to data distribution, query performance, and rebalancing.</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DDIA notes - Chapter 5: Replication]]></title>
+        <id>https://muyuge.github.io/post/ddia-notes-chapter-5-replication/</id>
+        <link href="https://muyuge.github.io/post/ddia-notes-chapter-5-replication/">
+        </link>
+        <updated>2023-01-22T03:52:42.000Z</updated>
+        <content type="html"><![CDATA[<p>Chapter 5 provides a comprehensive overview of replication strategies and their impact on the reliability and performance of data-intensive applications. It covers various aspects of replication, including its use for redundancy and scaling, consistency models, and conflict resolution techniques.</p>
+<ol>
+<li>
+<p><strong>Replication</strong>: Replication involves maintaining multiple copies of data in different locations. It's a fundamental technique for improving the availability, fault tolerance, and performance of data-intensive systems.</p>
+</li>
+<li>
+<p><strong>Replication for Redundancy</strong>: One primary reason for replication is to ensure that data remains available even if some nodes in a system fail. Redundancy is achieved by keeping multiple copies of the same data.</p>
+</li>
+<li>
+<p><strong>Replication for Scaling</strong>: Replication can also be used to distribute read traffic across multiple nodes, improving read performance and scalability.</p>
+</li>
+<li>
+<p><strong>Synchronous vs. Asynchronous Replication</strong>: In synchronous replication, a write is considered complete only when all replicas have acknowledged it. In asynchronous replication, writes are acknowledged as soon as they are received, without waiting for all replicas to be updated.</p>
+</li>
+<li>
+<p><strong>Single-Leader vs. Multi-Leader Replication</strong>: In single-leader replication, one node is responsible for handling all writes, while in multi-leader replication, multiple nodes can accept writes independently.</p>
+</li>
+<li>
+<p><strong>Leader-Based Replication</strong>: In leader-based replication, one node (the leader) handles all writes and then replicates the changes to followers. This approach is often used in databases.</p>
+</li>
+<li>
+<p><strong>Quorums</strong>: Quorum-based systems require a minimum number of nodes to agree on a write or read operation to ensure consistency and fault tolerance.</p>
+</li>
+<li>
+<p><strong>Consistency and Availability Trade-offs</strong>: The CAP theorem applies to replicated systems, and trade-offs between consistency and availability must be made during network partitions.</p>
+</li>
+<li>
+<p><strong>Conflict Resolution</strong>: When multiple replicas receive conflicting updates, conflict resolution strategies must be employed. Timestamps or vector clocks are often used to determine the order of updates.</p>
+</li>
+<li>
+<p><strong>Replication Lag</strong>: Replication lag refers to the delay between a write being made to the leader and it being replicated to followers. High replication lag can affect read consistency.</p>
+</li>
+<li>
+<p><strong>Read Your Writes</strong>: Systems can be configured to ensure that after a write is acknowledged, a subsequent read by the same client will return the updated data. This is known as &quot;read your writes&quot; consistency.</p>
+</li>
+<li>
+<p><strong>Data Center Locality</strong>: Replicas are often placed in different data centers for fault tolerance and low-latency access. However, cross-data center communication can introduce latency.</p>
+</li>
+<li>
+<p><strong>Consistency Models</strong>: Systems may offer different consistency models, such as strong consistency, eventual consistency, or causal consistency. The choice of model depends on the application's requirements.</p>
+</li>
+<li>
+<p><strong>Gossip Protocols</strong>: Gossip protocols are used for disseminating information about the state of nodes in a cluster. They are often employed in decentralized systems.</p>
+</li>
+<li>
+<p><strong>Anti-Entropy and Merkle Trees</strong>: To ensure consistency between replicas, anti-entropy processes compare data in replicas and repair inconsistencies. Merkle trees are a data structure that helps efficiently detect and correct differences.</p>
+</li>
+<li>
+<p><strong>Key Takeaway</strong>: Replication is a critical technique for improving availability, fault tolerance, and performance in data-intensive systems. However, it introduces challenges related to consistency, conflict resolution, and latency.</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DDIA notes - Chapter 4: Encoding and Evolution]]></title>
+        <id>https://muyuge.github.io/post/ddia-notes-chapter-4-encoding-and-evolution/</id>
+        <link href="https://muyuge.github.io/post/ddia-notes-chapter-4-encoding-and-evolution/">
+        </link>
+        <updated>2023-01-14T10:49:09.000Z</updated>
+        <content type="html"><![CDATA[<p>Chapter 4 explores the challenges of data encoding and schema evolution in data-intensive applications. It emphasizes the importance of handling schema changes while maintaining compatibility and provides insights into various techniques and serialization frameworks to achieve this goal.</p>
+<ol>
+<li>
+<p><strong>Data Serialization</strong>: Data serialization is the process of converting data structures or objects into a format that can be easily stored, transmitted, and reconstructed. Common serialization formats include JSON, XML, and binary formats.</p>
+</li>
+<li>
+<p><strong>Schema</strong>: A schema defines the structure and types of data in a format. Schemas can be implicit (unstructured data like JSON) or explicit (XML Schema, Protocol Buffers, Avro schema).</p>
+</li>
+<li>
+<p><strong>Schema Evolution</strong>: Over time, the structure of data often changes. Schema evolution deals with how to handle these changes in a way that does not break compatibility with existing data and clients.</p>
+</li>
+<li>
+<p><strong>Backward Compatibility</strong>: A new version of a schema is backward compatible if it can be read by an old version of the software. This ensures that old clients can still read data produced by newer clients.</p>
+</li>
+<li>
+<p><strong>Forward Compatibility</strong>: A new version of a schema is forward compatible if it can read data produced by an old version of the software. This ensures that new clients can read data produced by older clients.</p>
+</li>
+<li>
+<p><strong>Compatibility Techniques</strong>: Techniques like adding optional fields, providing default values, and using a version number can help achieve schema compatibility.</p>
+</li>
+<li>
+<p><strong>Avro</strong>: Apache Avro is a popular data serialization framework that provides schema evolution support. It allows schemas to evolve and supports both backward and forward compatibility.</p>
+</li>
+<li>
+<p><strong>Thrift and Protocol Buffers</strong>: Apache Thrift and Google Protocol Buffers are other serialization frameworks that provide schema evolution support and are widely used in distributed systems.</p>
+</li>
+<li>
+<p><strong>Message-Passing Data</strong>: In distributed systems, messages are often used to communicate between different components or services. Serializing messages correctly is critical for interoperability.</p>
+</li>
+<li>
+<p><strong>Dataflow</strong>: Dataflow systems, like Apache Beam, use a different approach to data serialization, focusing on the transformation of data records rather than fixed schemas.</p>
+</li>
+<li>
+<p><strong>Event Sourcing</strong>: Event sourcing is a pattern where all changes to application state are captured as a sequence of immutable events. It requires careful handling of schema evolution to ensure historical data remains readable.</p>
+</li>
+<li>
+<p><strong>Schema Registry</strong>: A schema registry is a centralized service that stores and manages schemas. It helps ensure consistency and compatibility between producers and consumers of data.</p>
+</li>
+<li>
+<p><strong>Data Encoding</strong>: Data encoding refers to the representation of data in a specific format for efficient storage and transmission. Common encodings include binary, text-based (UTF-8), and various compression formats.</p>
+</li>
+<li>
+<p><strong>Data Types</strong>: Different programming languages and systems have different data types, and encoding needs to handle these types correctly during serialization and deserialization.</p>
+</li>
+<li>
+<p><strong>Code Generation</strong>: Some serialization frameworks generate code from schemas, allowing for efficient serialization and deserialization in different programming languages.</p>
+</li>
+<li>
+<p><strong>Key Takeaway</strong>: Effective data encoding and schema evolution strategies are crucial for long-term data compatibility and system maintainability in data-intensive applications.</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DDIA notes - Chapter 3: Storage and Retrieval]]></title>
+        <id>https://muyuge.github.io/post/ddia-notes-chapter-3-storage-and-retrieval/</id>
+        <link href="https://muyuge.github.io/post/ddia-notes-chapter-3-storage-and-retrieval/">
+        </link>
+        <updated>2023-01-07T13:30:08.000Z</updated>
+        <content type="html"><![CDATA[<p>Chapter 3 dive into the fundamentals of data storage and retrieval, covering various storage subsystems, data structures, and access patterns. It provides insights into how different storage choices can impact system performance and scalability.</p>
+<ol>
+<li>
+<p><strong>Data Storage</strong>: In data-intensive applications, data storage is a critical component. Efficient storage and retrieval are essential for system performance.</p>
+</li>
+<li>
+<p><strong>Storage Subsystems</strong>: There are various storage subsystems, each optimized for specific access patterns:</p>
+<ul>
+<li><strong>File Systems</strong>: Suitable for storing large files, often used for multimedia data.</li>
+<li><strong>Relational Databases</strong>: Provide structured storage and powerful querying capabilities.</li>
+<li><strong>NoSQL Databases</strong>: Offer various data models and scalability options.</li>
+<li><strong>Search Indexes</strong>: Specialized for full-text search and text retrieval.</li>
+<li><strong>Column-Family Stores</strong>: Optimized for write-heavy workloads.</li>
+<li><strong>Graph Databases</strong>: Designed for traversing and querying relationships in data.</li>
+</ul>
+</li>
+<li>
+<p><strong>Access Patterns</strong>: The choice of storage subsystem depends on the access patterns of the application. Considerations include read-heavy vs. write-heavy workloads and the complexity of queries.</p>
+</li>
+<li>
+<p><strong>Data Structures</strong>: Efficient data structures, such as B-trees and LSM-trees, are crucial for storage systems to support operations like insertion, deletion, and range queries.</p>
+</li>
+<li>
+<p><strong>Indexes</strong>: Indexes are used to accelerate data retrieval by providing a fast path to locate data. They can be implemented using various data structures, including B-trees, hash indexes, and bitmap indexes.</p>
+</li>
+<li>
+<p><strong>Log-Structured Storage</strong>: Many storage systems use a log-structured approach to write data sequentially, improving write performance and ensuring durability.</p>
+</li>
+<li>
+<p><strong>Compaction</strong>: Over time, data storage systems may accumulate obsolete data and need to perform compaction to reclaim space and improve performance.</p>
+</li>
+<li>
+<p><strong>Data Warehousing</strong>: Data warehousing systems are optimized for analytical queries rather than transactional workloads. They often use columnar storage and query optimization techniques.</p>
+</li>
+<li>
+<p><strong>Caching</strong>: Caching is an important technique to reduce latency by storing frequently accessed data in memory. Caches can be implemented at various levels, from application-level caching to distributed caching.</p>
+</li>
+<li>
+<p><strong>Bloom Filters</strong>: Bloom filters are probabilistic data structures used to test whether an element is a member of a set. They are useful for reducing expensive disk reads when querying data.</p>
+</li>
+<li>
+<p><strong>Key-Value Stores</strong>: Key-value stores are simple and highly performant storage systems that are often used for caching and as building blocks for more complex data storage solutions.</p>
+</li>
+<li>
+<p><strong>Distributed Storage</strong>: Distributed storage systems replicate data across multiple nodes to ensure fault tolerance and availability. Techniques like sharding and consistent hashing are used to distribute data effectively.</p>
+</li>
+<li>
+<p><strong>Transactions</strong>: Maintaining data consistency in distributed systems often requires implementing distributed transactions, which can be complex to ensure correctness.</p>
+</li>
+<li>
+<p><strong>Data Durability</strong>: Ensuring data durability involves mechanisms like write-ahead logs, replication, and synchronization between replicas.</p>
+</li>
+<li>
+<p><strong>Data Compression</strong>: Data compression techniques can significantly reduce storage costs and improve retrieval speed.</p>
+</li>
+<li>
+<p><strong>Key Takeaway</strong>: The choice of storage subsystem and data structures significantly impacts the performance, scalability, and reliability of a data-intensive application. Understanding the trade-offs between different storage options is crucial for designing effective systems.</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[DDIA notes - Chapter 2: Data Models and Query Languages]]></title>
+        <id>https://muyuge.github.io/post/ddia-notes-chapter-2-data-models-and-query-languages/</id>
+        <link href="https://muyuge.github.io/post/ddia-notes-chapter-2-data-models-and-query-languages/">
+        </link>
+        <updated>2022-12-25T14:22:35.000Z</updated>
+        <content type="html"><![CDATA[<p>Chapter 2 provides a foundation for understanding the different data models and query languages used in data-intensive applications. It emphasizes that the choice of data model should align with the specific requirements and characteristics of the application and its data.</p>
+<ol>
+<li>
+<p><strong>Data Models</strong>: Data models are high-level descriptions of the structure and organization of data. They play a crucial role in how data is stored, retrieved, and processed in a system.</p>
+</li>
+<li>
+<p><strong>Relational Model</strong>: The relational data model, based on tables with rows and columns, is one of the most widely used models in databases. It supports powerful querying and is known for its simplicity and rigor.</p>
+</li>
+<li>
+<p><strong>Schema</strong>: A schema defines the structure of data, including data types, constraints, and relationships between data elements.</p>
+</li>
+<li>
+<p><strong>NoSQL Data Models</strong>: NoSQL databases offer alternatives to the relational model, including document stores, key-value stores, wide-column stores, and graph databases. These models are often more flexible but may require application-level logic for data consistency.</p>
+</li>
+<li>
+<p><strong>Schemaless Models</strong>: Some NoSQL databases are schemaless, allowing data to have different structures within the same database.</p>
+</li>
+<li>
+<p><strong>Query Languages</strong>: The choice of query language is closely tied to the data model. SQL is the standard query language for relational databases, while NoSQL databases often have their query languages or APIs.</p>
+</li>
+<li>
+<p><strong>ACID and BASE</strong>: ACID (Atomicity, Consistency, Isolation, Durability) and BASE (Basically Available, Soft state, Eventually consistent) are two sets of properties that describe the trade-offs between consistency and availability in distributed systems.</p>
+</li>
+<li>
+<p><strong>CAP Theorem</strong>: The CAP theorem states that it is impossible for a distributed system to simultaneously provide all three of the following guarantees: Consistency, Availability, and Partition tolerance. Systems must make trade-offs in the face of network partitions.</p>
+</li>
+<li>
+<p><strong>Consistency Models</strong>: Different databases offer different consistency models, such as strong consistency, eventual consistency, and causal consistency. The choice of model depends on the application's requirements.</p>
+</li>
+<li>
+<p><strong>Immutability</strong>: Some systems embrace immutability, where data is never updated but instead new versions are created. This simplifies some aspects of data management but may require new strategies for handling updates.</p>
+</li>
+<li>
+<p><strong>Query Languages for NoSQL</strong>: NoSQL databases often have query languages or APIs tailored to their data models. For example, MongoDB uses a JSON-like query language, while Cassandra uses CQL (Cassandra Query Language).</p>
+</li>
+<li>
+<p><strong>Polyglot Persistence</strong>: It's common to use multiple data storage technologies within a single application to leverage the strengths of each for different use cases. This is known as polyglot persistence.</p>
+</li>
+<li>
+<p><strong>Key Takeaway</strong>: The choice of data model and query language significantly impacts how data is stored, retrieved, and processed in a system. Understanding the trade-offs between different models and languages is essential for designing effective data-intensive applications.</p>
+</li>
+</ol>
+]]></content>
+    </entry>
+</feed>
